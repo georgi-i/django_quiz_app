@@ -1,0 +1,52 @@
+body {
+    background-color: #000;
+}
+.score_text{
+    color: #FFF;
+    font-size: 27px;
+}
+
+fieldset {
+    border: 0;
+    margin: 2rem 0;
+  }
+  
+  fieldset legend {
+    font-weight: 700;
+    color: #FFF;
+  }
+  
+  .answer__item {
+      background-color: #f6f6f6;
+      display: block;
+      position: relative;
+      cursor: pointer;
+      padding: 0.75rem 1.25rem;
+      margin: 0.25rem 0;
+  }
+  
+  input[type="radio"], button {
+    display: none;
+  }
+  
+  :valid .answer__item--is-correct { background-color: rgba(61, 181, 64, 0.6) }
+  
+  .answer__reveal-text { display: none; }
+  :valid .answer__reveal-text { display: block }
+  
+  :checked + .answer__item { color: #ffffff; background-color: #c70000 }
+  
+  :checked + .answer__item--is-correct { background-color: #3db540; }
+  
+  :checked + .answer__item .answer__icon { display: inline-block }
+  
+  :valid { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none }
+  :valid + .answer__item { pointer-events: none }
+  
+  form { counter-reset: quiz-score }
+  :checked + .answer__item--is-correct { counter-increment: quiz-score }
+  .score:after { content: counter(quiz-score) "/" attr(data-question-count) ; color: #FFF}
+  
+  .message { display: none; }
+  form:valid .message { display: block }
+  

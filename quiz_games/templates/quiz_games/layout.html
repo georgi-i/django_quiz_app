@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>{% block title %}{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'quiz_games/site.css' %}"/>
+    <link href='https://fonts.googleapis.com/css?family=Bungee' rel='stylesheet'>
+</head>
+<body>
+    
+    {% block content %}
+          
+    {% endblock %}
+    <div class="background-one link-container">
+        <a href="{% url 'easy' %}" class="link-one">Easy</a>
+    </div>
+    <div class="background-two link-container">
+        <a href="{% url 'medium' %}" class="link-two">Medium</a>
+    </div>
+    <div class="background-three link-container">
+        <a href="{% url 'hard' %}" class="link-three">Hard</a>
+    </div>
+</body>
+</html>

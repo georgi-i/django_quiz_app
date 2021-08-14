@@ -1,0 +1,55 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'quiz_games/questions.css' %}"/>
+{% block content %}
+<div class="container mt-sm-5 my-1">
+    {% for q in questions %}
+    <form method="POST" class="is-not-results">
+        <fieldset>
+          <legend>{{ q.id }}. {{ q.question }}</legend>
+          <div class="answers">
+            <div class="answer">
+              <input type="radio" name="answers[{{ q.id }}]" id="answer-{{ q.id }}-1" value="1" required>
+                {% if forloop.counter|divisibleby:2 %}
+                    <label for="answer-{{ q.id }}-1" class="answer__item answer__item--is-correct">
+                    {{ q.correct_answer }} 
+                    <span class="answer__reveal-text">Correct answer!</span>
+                {% else %}
+                    <label for="answer-{{ q.id }}-1" class="answer__item">
+                    {{ q.incorrect_answer_one }}
+                {% endif %}
+              </label>
+            </div>
+            <div class="answer">
+              <input type="radio" name="answers[{{ q.id }}]" id="answer-{{ q.id }}-2" value="2" required>
+              <label for="answer-{{ q.id }}-2" class="answer__item">
+                          {{ q.incorrect_answer_two }}
+                </label>
+            </div>
+            <div class="answer">
+              <input type="radio" name="answers[{{ q.id }}]" id="answer-{{ q.id }}-3" value="3" required>
+                {% if not forloop.counter|divisibleby:2 %}
+                    <label for="answer-{{ q.id }}-3" class="answer__item answer__item--is-correct">
+                    {{ q.correct_answer }} 
+                    <span class="answer__reveal-text">Correct answer!</span>
+                {% else %}
+                    <label for="answer-{{ q.id }}-3" class="answer__item">
+                    {{ q.incorrect_answer_one }}
+                {% endif %}
+                </label>
+            </div>
+            <div class="answer">
+              <input type="radio" name="answers[{{ q.id }}]" id="answer-{{ q.id }}-4" value="4" required>
+              <label for="answer-{{ q.id }}-4" class="answer__item">
+                    {{ q.incorrect_answer_three }}
+                </label>
+            </div>
+          </div>
+        </fieldset>
+    {% endfor %}
+    <button type="submit">Submit answers</button>    
+        <div class="message">
+          <p class="score_text">Your Score: <span class="score" data-question-count="10"></span></p>
+        </div>
+      </form>
+</div>
+{% endblock %}
