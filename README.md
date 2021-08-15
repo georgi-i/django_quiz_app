@@ -6,3 +6,7 @@ The App uses **opentdb.com** free API services for DB populating.
 
 It serves the user with a choice between: easy, medium and hard questions for answering.
 
+**Demo**
+
+![Alt Text](https://github.com/georgi-i/django_quiz_app/blob/main/demo.gif)
+
