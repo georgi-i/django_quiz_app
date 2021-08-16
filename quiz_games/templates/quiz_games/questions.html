@@ -5,7 +5,7 @@
     {% for q in questions %}
     <form method="POST" class="is-not-results">
         <fieldset>
-          <legend>{{ q.id }}. {{ q.question }}</legend>
+          <legend>{{ q.question }}</legend>
           <div class="answers">
             <div class="answer">
               <input type="radio" name="answers[{{ q.id }}]" id="answer-{{ q.id }}-1" value="1" required>

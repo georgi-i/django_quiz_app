@@ -1,10 +1,11 @@
 from django.urls import path
-from quiz_games import views
+from quiz_games.views import Home
+from quiz_games.views import QuestionsView
 
 urlpatterns = [
-    path("", views.home, name="home"),
-    path("easy/", views.easy, name="easy"),
-    path("medium/", views.medium, name="medium"),
-    path("hard/", views.hard, name="hard")
+    path("", Home.as_view(template_name="quiz_games/home.html"), name="home"),
+    path('easy/', QuestionsView.as_view(template_name="quiz_games/questions.html"), name='easy'),
+    path('medium/', QuestionsView.as_view(template_name="quiz_games/questions.html"), name='medium'),
+    path('hard/', QuestionsView.as_view(template_name="quiz_games/questions.html"), name='hard'),
 ]
 
