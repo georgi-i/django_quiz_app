@@ -1,5 +1,4 @@
 from quiz_games.models import Question
-from django.shortcuts import render
 from django.views.generic import TemplateView
 #import requests
 
