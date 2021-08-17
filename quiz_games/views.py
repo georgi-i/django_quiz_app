@@ -2,7 +2,7 @@ from quiz_games.models import Question
 from django.views.generic import TemplateView
 #import requests
 
-class Home(TemplateView):
+class HomeView(TemplateView):
     template_name = "quiz_games/home.html"
 
 class QuestionsView(TemplateView):
